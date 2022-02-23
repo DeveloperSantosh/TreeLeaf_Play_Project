@@ -19,7 +19,7 @@ public class Blog extends Model {
 
     public String timestamp;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public User author;
 
     public Blog(){

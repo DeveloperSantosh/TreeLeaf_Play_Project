@@ -6,6 +6,8 @@ import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class User extends Model {
@@ -19,6 +21,9 @@ public class User extends Model {
 
     @Constraints.Required
     public String surname;
+
+    @OneToMany
+    public List<Blog> blogs;
 
     public User() {
     }
@@ -51,6 +56,14 @@ public class User extends Model {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
     }
 
     public static Finder<Integer, User> find = new Finder<>(User.class);
