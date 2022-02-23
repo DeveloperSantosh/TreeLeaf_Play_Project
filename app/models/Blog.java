@@ -19,9 +19,6 @@ public class Blog extends Model {
 
     public String timestamp;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    public List<Comment> comments;
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public User author;
 
@@ -79,5 +76,5 @@ public class Blog extends Model {
         this.author = author;
     }
 
-    public static Finder<String, Blog> find = new Finder<String, Blog>(Blog.class);
+    public static Finder<String, Blog> find = new Finder<>(Blog.class);
 }

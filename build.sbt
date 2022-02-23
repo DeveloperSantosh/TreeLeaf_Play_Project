@@ -22,6 +22,6 @@ libraryDependencies ++= Seq(
 
   "org.hibernate" % "hibernate-entitymanager" % "5.4.33",
   "javax.persistence" % "persistence-api" % "1.0.2",
-
 )
+playEnhancerEnabled := false
 PlayKeys.externalizeResourcesExcludes += baseDirectory.value / "conf" / "META-INF" / "persistence.xml"

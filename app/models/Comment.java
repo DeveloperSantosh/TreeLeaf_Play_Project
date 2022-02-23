@@ -1,5 +1,7 @@
 package models;
 
+import io.ebean.Finder;
+import io.ebean.Model;
 import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
@@ -8,7 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-public class Comment{
+public class Comment extends Model {
 
     @Constraints.Required
     @Id
@@ -56,4 +58,6 @@ public class Comment{
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+    public static Finder<String, Comment> find = new Finder<>(Comment.class);
 }
