@@ -77,11 +77,12 @@ public class HomeControllerTest extends WithApplication {
 
     @Test
     public void testOneToToneMapping(){
-        User user = new User(1, "Santosh", "Mahato");
+        User user = new User(2, "Santosh", "Mahato");
         assert  user != null;
         user.save();
         Blog blog = new Blog("MY First Blog", "This is content of my first blog");
         blog.setAuthor(user);
+        blog.save();
         user.delete();
         List<Blog> blogs = Blog.find.all();
         for(Blog b: blogs){
