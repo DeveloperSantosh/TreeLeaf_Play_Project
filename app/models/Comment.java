@@ -20,9 +20,6 @@ public class Comment extends Model {
 
     public String timestamp;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    public Blog blog;
-
     public Comment() {
         LocalDateTime dateTime = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
