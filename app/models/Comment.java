@@ -4,8 +4,7 @@ import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -20,6 +19,9 @@ public class Comment extends Model {
     public String comment;
 
     public String timestamp;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Blog blog;
 
     public Comment() {
         LocalDateTime dateTime = LocalDateTime.now();
