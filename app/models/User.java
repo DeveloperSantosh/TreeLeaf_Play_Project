@@ -20,7 +20,7 @@ public class User extends Model {
     @Constraints.Required
     public String surname;
 
-    @OneToMany(mappedBy = "Blog")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public List<Blog> blogs;
 
     public User() {
