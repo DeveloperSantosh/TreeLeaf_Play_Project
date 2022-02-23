@@ -1,4 +1,5 @@
 package models;
+
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
@@ -6,7 +7,6 @@ import play.data.validation.Constraints;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 @Entity
 public class Blog extends Model {
@@ -19,10 +19,10 @@ public class Blog extends Model {
 
     public String timestamp;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    public List<Comment> comments;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    public List<Comment> comments;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public User author;
 
     public Blog(){
@@ -63,13 +63,13 @@ public class Blog extends Model {
         this.timestamp = timestamp;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
+//    public List<Comment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<Comment> comments) {
+//        this.comments = comments;
+//    }
 
     public User getAuthor() {
         return author;
