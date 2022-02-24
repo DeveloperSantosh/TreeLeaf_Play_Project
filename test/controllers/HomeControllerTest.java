@@ -9,6 +9,7 @@ import play.mvc.Http;
 import play.mvc.Result;
 import play.test.WithApplication;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -76,11 +77,12 @@ public class HomeControllerTest extends WithApplication {
     }
 
     @Test
-    public void testOneToToneMapping(){
-        User user = new User(2, "Santosh", "Mahato");
+    public void testMapping() throws SQLException {
+
+        User user = new User(4, "Santosh", "Mahato");
         assert  user != null;
         user.save();
-        Blog blog = new Blog("MY First Blog", "This is content of my first blog");
+        Blog blog = new Blog("MY Second Blog", "This is content of my first blog");
         blog.setAuthor(user);
         blog.save();
         user.delete();
